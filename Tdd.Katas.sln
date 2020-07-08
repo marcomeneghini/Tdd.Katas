@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - String Calculator", "1 - String Calculator", "{FD2CA7D0-C3C9-4F28-835B-2BE646DAF6B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tdd.Katas.StringCalculatorLib", "Tdd.Katas.StringCalculatorLib\Tdd.Katas.StringCalculatorLib.csproj", "{8B4E3689-89C8-4C68-90BC-74CFED8135EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tdd.Katas.StringCalculatorLib.Tests", "Tdd.Katas.StringCalculatorLib.Tests\Tdd.Katas.StringCalculatorLib.Tests.csproj", "{B9F7F517-6966-4854-83FF-C8F0FF300BF0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{022FBBFC-70EC-4A18-BCCE-937A5D676C2F}"
+	ProjectSection(SolutionItems) = preProject
+		docs\String+Calculator+Kata+v1.pdf = docs\String+Calculator+Kata+v1.pdf
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B4E3689-89C8-4C68-90BC-74CFED8135EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B4E3689-89C8-4C68-90BC-74CFED8135EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B4E3689-89C8-4C68-90BC-74CFED8135EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B4E3689-89C8-4C68-90BC-74CFED8135EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9F7F517-6966-4854-83FF-C8F0FF300BF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9F7F517-6966-4854-83FF-C8F0FF300BF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9F7F517-6966-4854-83FF-C8F0FF300BF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9F7F517-6966-4854-83FF-C8F0FF300BF0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8B4E3689-89C8-4C68-90BC-74CFED8135EE} = {FD2CA7D0-C3C9-4F28-835B-2BE646DAF6B7}
+		{B9F7F517-6966-4854-83FF-C8F0FF300BF0} = {FD2CA7D0-C3C9-4F28-835B-2BE646DAF6B7}
+		{022FBBFC-70EC-4A18-BCCE-937A5D676C2F} = {FD2CA7D0-C3C9-4F28-835B-2BE646DAF6B7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA1139F5-355A-46A5-B2E0-C066331615C6}
+	EndGlobalSection
+EndGlobal
