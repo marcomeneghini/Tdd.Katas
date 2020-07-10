@@ -57,12 +57,12 @@ namespace Tdd.Katas.StringCalculatorLib.Tests
         //    Assert.Equal(8, actual);
         //}
 
-       [Theory]
-       [InlineData("",0)]
-       [InlineData("2", 2)]
-       [InlineData("3,4", 7)]
-       [InlineData("1,1,1", 3)]
-       [InlineData("1,1,1,1,1,1,1", 7)]
+        [Theory]
+        [InlineData("", 0)]
+        [InlineData("2", 2)]
+        [InlineData("3,4", 7)]
+        [InlineData("1,1,1", 3)]
+        [InlineData("1,1,1,1,1,1,1", 7)]
         public void Add(string numbers, int expected)
         {
             var stringCalculator = new StringCalculator();
@@ -72,11 +72,11 @@ namespace Tdd.Katas.StringCalculatorLib.Tests
             Assert.Equal(expected, actual);
         }
 
-    
-       [Theory]
-       [InlineData("1\n2", 3)]
-       [InlineData("1\n2,3", 6)]
-       [InlineData("1\n2,3\n1\n1\n1", 9)]
+
+        [Theory]
+        [InlineData("1\n2", 3)]
+        [InlineData("1\n2,3", 6)]
+        [InlineData("1\n2,3\n1\n1\n1", 9)]
         public void Add_NewLine_and_Coma(string numbers, int expected)
         {
             var stringCalculator = new StringCalculator();
@@ -137,7 +137,7 @@ namespace Tdd.Katas.StringCalculatorLib.Tests
             var stringCalculator = new StringCalculator();
 
             // act - assert
-            var exception =  Assert.Throws<Exception>(()=> stringCalculator.Add("-1"));
+            var exception = Assert.Throws<Exception>(() => stringCalculator.Add("-1"));
 
             // assert
             Assert.Equal("negatives not allowed -1", exception.Message);
@@ -207,21 +207,144 @@ namespace Tdd.Katas.StringCalculatorLib.Tests
         }
 
         [Theory]
-        [InlineData(1,1)]
+        [InlineData(1, 1)]
         [InlineData(5, 5)]
-        public void GetCalledCount(int count,int expected)
+        public void GetCalledCount(int timesAddCalled, int expected)
         {
             //arrange 
             var stringCalculator = new StringCalculator();
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < timesAddCalled; i++)
             {
                 stringCalculator.Add("1,3,4");
             }
-           
+
             int actual = stringCalculator.GetCalledCount();
 
             Assert.Equal(expected, actual);
         }
 
+        [Fact]
+        public void AddOccurredEvent_when1_thenEvent1()
+        {
+            //arrange 
+            var stringCalculator = new StringCalculator();
+
+            string giveninput = null;
+            stringCalculator.AddOccurred += delegate(string input,
+                int result)
+            {
+                giveninput = input;
+            };
+
+            stringCalculator.Add("1");
+
+
+            Assert.Equal("1", giveninput);
+        }
+
+        [Theory]
+        [InlineData("", 0)]
+        [InlineData("2", 2)]
+        [InlineData("3,4", 7)]
+        [InlineData("1,1,1", 3)]
+        [InlineData("1,1,1,1,1,1,1", 7)]
+        [InlineData("1\n2", 3)]
+        [InlineData("1\n2,3", 6)]
+        [InlineData("1\n2,3\n1\n1\n1", 9)]
+        [InlineData("//;\n1;2", 3)]
+        [InlineData("//|\n1|2", 3)]
+        [InlineData("//|\n1|2|1|1|1|1", 7)]
+        public void AddOccurredEvent(string numbers, int sum)
+        {
+            //arrange 
+            var stringCalculator = new StringCalculator();
+
+            string evtInput = null;
+            int evtSum = 0;
+            stringCalculator.AddOccurred += delegate(string input,
+                int result)
+            {
+                evtInput = input;
+                evtSum = result;
+            };
+
+            stringCalculator.Add(numbers);
+
+
+            Assert.Equal(numbers, evtInput);
+            Assert.Equal(sum, evtSum);
+        }
+
+        //9. Numbers bigger than 1000 should be ignored, for example:
+        //2 + 1001 == 2
+        [Theory]
+        [InlineData("1001", 0)]
+        [InlineData("2,1002", 2)]
+        [InlineData("3,4,5000", 7)]
+        [InlineData("1,1,1,8000", 3)]
+        public void Add_whenBT1000_Ignore(string numbers,int expected)
+        {
+            var stringCalculator = new StringCalculator();
+
+            var actual = stringCalculator.Add(numbers);
+
+            Assert.Equal(expected, actual);
+        }
+
+        //10. Delimiters can be of any length with the following format:
+        //“//[delimiter]\n”
+        //for example:
+        //“//[***]\n1***2***3” == 6
+
+        [Theory]
+        [InlineData("//;;\n1;;2", 3)]
+        [InlineData("//||\n1||2", 3)]
+        [InlineData("//||\n1||2||1||1||1||1", 7)]
+        public void Add_DelimiterAnyLenght(string numbers, int expected)
+        {
+            var stringCalculator = new StringCalculator();
+
+            var actual = stringCalculator.Add(numbers);
+
+            Assert.Equal(expected, actual);
+        }
+
+        //11. Allow multiple delimiters like this:
+        //“//[delim1][delim2]\n”
+        //for example
+        //“//[*][%]\n1*2%3” == 6.
+        [Theory]
+        [InlineData("//[;][?]\n1;2", 3)]
+        [InlineData("//[;][?]\n1?2", 3)]
+        [InlineData("//[;][?]\n1;2?1?1?1;1", 7)]
+        public void Add_MultipleDelimiter(string numbers, int expected)
+        {
+            var stringCalculator = new StringCalculator();
+
+            var actual = stringCalculator.Add(numbers);
+
+            Assert.Equal(expected, actual);
+        }
+
+        //12. make sure you can also handle multiple delimiters with length longer than one char
+        //for example
+        //“//[**][%%]\n1**2%%3” == 6
+
+        [Theory]
+        [InlineData("//[;;][?]\n1;;2", 3)]
+        [InlineData("//[;;][?]\n1?2", 3)]
+        [InlineData("//[;;][?]\n1;;2?1?1?1;;1", 7)]
+        public void Add_MultipleDelimiterAnyLenght(string numbers, int expected)
+        {
+            var stringCalculator = new StringCalculator();
+
+            var actual = stringCalculator.Add(numbers);
+
+            Assert.Equal(expected, actual);
+        }
     }
+
+ 
+     
+    
 }
