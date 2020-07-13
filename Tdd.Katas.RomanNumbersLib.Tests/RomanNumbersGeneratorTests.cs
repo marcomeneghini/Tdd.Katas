@@ -108,5 +108,22 @@ namespace Tdd.Katas.RomanNumbersLib.Tests
             Assert.Equal(expected, actual);
         }
 
+        [Theory]
+        [InlineData(101, "CI")]
+        [InlineData(200, "CC")]
+        [InlineData(350, "CCCL")]
+        [InlineData(400, "CD")]
+        [InlineData(450, "CDL")]
+        [InlineData(500, "D")]
+        [InlineData(650, "DCL")]
+        [InlineData(980, "CMLXXX")]
+        [InlineData(1000, "M")]
+        public void Generate_101to1000_Specials(int number, string expected)
+        {
+            var actual = RomanNumbersGenerator.Generate(number);
+
+            Assert.Equal(expected, actual);
+        }
+
     }
 }
