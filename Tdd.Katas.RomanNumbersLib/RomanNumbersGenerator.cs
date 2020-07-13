@@ -7,14 +7,30 @@ namespace Tdd.Katas.RomanNumbersLib
     {
         public static string Generate(int number)
         {
+            var result = string.Empty;
             var map = InitializeMap();
-            return map[number];
+            if (number<=10)
+            {
+                result = map[number];
+                return result;
+            }else
+            {
+                var tens = number / 10;
+                for (int i = 0; i < tens; i++)
+                {
+                    result += map[10];
+                }
+                number = number - (tens*10);
+            }
+            result += map[number];
+            return result;
         }
     
         private static Dictionary<int, string> InitializeMap()
         {
             var map = new Dictionary<int, string>
             {
+                { 0, "" },
                 { 1, "I" },
                 {2,"II"},
                 {3,"III"},
