@@ -9,20 +9,15 @@ namespace Tdd.Katas.RomanNumbersLib
         {
             var result = string.Empty;
             var map = InitializeMap();
-            if (number<=10)
+            foreach (KeyValuePair<int,string> item in map)
             {
-                result = map[number];
-                return result;
-            }else
-            {
-                var tens = number / 10;
-                for (int i = 0; i < tens; i++)
+                while (number>=item.Key)
                 {
-                    result += map[10];
+                    result += item.Value;
+                    number -= item.Key;
                 }
-                number = number - (tens*10);
             }
-            result += map[number];
+           
             return result;
         }
     
@@ -30,17 +25,16 @@ namespace Tdd.Katas.RomanNumbersLib
         {
             var map = new Dictionary<int, string>
             {
-                { 0, "" },
-                { 1, "I" },
-                {2,"II"},
-                {3,"III"},
-                {4,"IV"},
-                {5,"V"},
-                {6,"VI"},
-                {7,"VII"},
-                {8,"VIII"},
+                {100,"C"},
+                {90,"XC"},
+                {50,"L"},
+                {40,"XL"},
+                {10,"X"},
                 {9,"IX"},
-                {10,"X"}
+                {5,"V"},
+                {4,"IV"},
+                { 1, "I" },
+                
             };
             return map;
         }

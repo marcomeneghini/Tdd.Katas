@@ -57,5 +57,56 @@ namespace Tdd.Katas.RomanNumbersLib.Tests
 
             Assert.Equal(expected, actual);
         }
+
+        [Theory]
+        [InlineData(21, "XXI")]
+        [InlineData(22, "XXII")]
+        [InlineData(23, "XXIII")]
+        [InlineData(24, "XXIV")]
+        [InlineData(25, "XXV")]
+        [InlineData(26, "XXVI")]
+        [InlineData(27, "XXVII")]
+        [InlineData(28, "XXVIII")]
+        [InlineData(29, "XXIX")]
+        [InlineData(30, "XXX")]
+        public void Generate_21to30(int number, string expected)
+        {
+            var actual = RomanNumbersGenerator.Generate(number);
+
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData(31, "XXXI")]
+        [InlineData(32, "XXXII")]
+        [InlineData(33, "XXXIII")]
+        [InlineData(34, "XXXIV")]
+        [InlineData(35, "XXXV")]
+        [InlineData(36, "XXXVI")]
+        [InlineData(37, "XXXVII")]
+        [InlineData(38, "XXXVIII")]
+        [InlineData(39, "XXXIX")]
+        [InlineData(40, "XL")]
+        public void Generate_31to40(int number, string expected)
+        {
+            var actual = RomanNumbersGenerator.Generate(number);
+
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData(50, "L")]
+        [InlineData(60, "LX")]
+        [InlineData(80, "LXXX")]
+        [InlineData(90, "XC")]
+        [InlineData(99, "XCIX")]
+        [InlineData(100, "C")]
+        public void Generate_50to100_Specials(int number, string expected)
+        {
+            var actual = RomanNumbersGenerator.Generate(number);
+
+            Assert.Equal(expected, actual);
+        }
+
     }
 }
