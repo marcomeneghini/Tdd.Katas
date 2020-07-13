@@ -5,14 +5,25 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - String Calculator", "1 - String Calculator", "{FD2CA7D0-C3C9-4F28-835B-2BE646DAF6B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tdd.Katas.StringCalculatorLib", "Tdd.Katas.StringCalculatorLib\Tdd.Katas.StringCalculatorLib.csproj", "{8B4E3689-89C8-4C68-90BC-74CFED8135EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tdd.Katas.StringCalculatorLib", "Tdd.Katas.StringCalculatorLib\Tdd.Katas.StringCalculatorLib.csproj", "{8B4E3689-89C8-4C68-90BC-74CFED8135EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tdd.Katas.StringCalculatorLib.Tests", "Tdd.Katas.StringCalculatorLib.Tests\Tdd.Katas.StringCalculatorLib.Tests.csproj", "{B9F7F517-6966-4854-83FF-C8F0FF300BF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tdd.Katas.StringCalculatorLib.Tests", "Tdd.Katas.StringCalculatorLib.Tests\Tdd.Katas.StringCalculatorLib.Tests.csproj", "{B9F7F517-6966-4854-83FF-C8F0FF300BF0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{022FBBFC-70EC-4A18-BCCE-937A5D676C2F}"
 	ProjectSection(SolutionItems) = preProject
 		docs\String+Calculator+Kata+v1.pdf = docs\String+Calculator+Kata+v1.pdf
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Prime Factors", "2 - Prime Factors", "{4DDC8A91-24E8-41DB-8D27-7DE298B58FE1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{2B2960D8-4407-4945-8E8F-ED41EF6873DE}"
+	ProjectSection(SolutionItems) = preProject
+		docs\Prime Factors Kata.pdf = docs\Prime Factors Kata.pdf
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tdd.Katas.PrimeFactorsLib", "Tdd.Katas.PrimeFactorsLib\Tdd.Katas.PrimeFactorsLib.csproj", "{7D748F06-1E8E-458E-A352-2E563DDDA695}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tdd.Katas.PrimeFactorsLib.Tests", "Tdd.Katas.PrimeFactorsLib.Tests\Tdd.Katas.PrimeFactorsLib.Tests.csproj", "{6DC42741-45F1-4A53-82AB-D485ED2DB616}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,6 +39,14 @@ Global
 		{B9F7F517-6966-4854-83FF-C8F0FF300BF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9F7F517-6966-4854-83FF-C8F0FF300BF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9F7F517-6966-4854-83FF-C8F0FF300BF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D748F06-1E8E-458E-A352-2E563DDDA695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D748F06-1E8E-458E-A352-2E563DDDA695}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D748F06-1E8E-458E-A352-2E563DDDA695}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D748F06-1E8E-458E-A352-2E563DDDA695}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DC42741-45F1-4A53-82AB-D485ED2DB616}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DC42741-45F1-4A53-82AB-D485ED2DB616}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DC42741-45F1-4A53-82AB-D485ED2DB616}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DC42741-45F1-4A53-82AB-D485ED2DB616}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +55,9 @@ Global
 		{8B4E3689-89C8-4C68-90BC-74CFED8135EE} = {FD2CA7D0-C3C9-4F28-835B-2BE646DAF6B7}
 		{B9F7F517-6966-4854-83FF-C8F0FF300BF0} = {FD2CA7D0-C3C9-4F28-835B-2BE646DAF6B7}
 		{022FBBFC-70EC-4A18-BCCE-937A5D676C2F} = {FD2CA7D0-C3C9-4F28-835B-2BE646DAF6B7}
+		{2B2960D8-4407-4945-8E8F-ED41EF6873DE} = {4DDC8A91-24E8-41DB-8D27-7DE298B58FE1}
+		{7D748F06-1E8E-458E-A352-2E563DDDA695} = {4DDC8A91-24E8-41DB-8D27-7DE298B58FE1}
+		{6DC42741-45F1-4A53-82AB-D485ED2DB616} = {4DDC8A91-24E8-41DB-8D27-7DE298B58FE1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FA1139F5-355A-46A5-B2E0-C066331615C6}
