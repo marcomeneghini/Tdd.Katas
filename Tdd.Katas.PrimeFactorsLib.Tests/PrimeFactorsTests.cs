@@ -89,5 +89,28 @@ namespace Tdd.Katas.PrimeFactorsLib.Tests
 
             Assert.Equal(expected, actual);
         }
+
+        [Theory]
+        [MemberData(nameof(Data))]
+        public void Generate(List<int> expected,int number)
+        {
+          
+            var actual = PrimeFactors.Generate(number);
+
+
+            Assert.Equal(expected, actual);
+        }
+
+        public static IEnumerable<object[]> Data =>
+            new List<object[]>
+            {
+                new object[] { new List<int>(){1},1 },
+                new object[] { new List<int>(){2},2 },
+                new object[] { new List<int>(){3},3 },
+                new object[] { new List<int>(){2,3},6 },
+                new object[] { new List<int>(){2,2,2},8 },
+                new object[] { new List<int>(){3,3},9 },
+                new object[] { new List<int>(){19},19 }
+            };
     }
 }

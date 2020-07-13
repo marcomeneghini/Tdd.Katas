@@ -22,7 +22,6 @@ namespace Tdd.Katas.PrimeFactorsLib
                 }
                 candidate++;
             }
-
             return primes;
         }
     }
